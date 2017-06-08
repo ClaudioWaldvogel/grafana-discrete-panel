@@ -1,68 +1,100 @@
-
-
 <div class="editor-row">
 
     <div class="section gf-form-group">
         <h5 class="section-heading">Display</h5>
         <div class="gf-form">
-          <label class="gf-form-label width-14">Row Height</label>
-          <input type="number" ng-model="ctrl.panel.rowHeight" class="gf-form-input max-width-5" ng-blur="ctrl.render()" />
+            <label class="gf-form-label width-14">Row Height</label>
+            <input type="number" ng-model="ctrl.panel.rowHeight" class="gf-form-input max-width-5"
+                   ng-blur="ctrl.render()"/>
         </div>
         <div class="gf-form">
-          <label class="gf-form-label width-14">Text Size</label>
-          <input type="number" ng-model="ctrl.panel.textSize" class="gf-form-input max-width-5" ng-blur="ctrl.render()" />
-        </div>
-
-        <div class="gf-form">
-          <gf-form-switch class="gf-form"
-            label="Write Last Value"
-            label-class="gf-form-label width-14"
-            checked="ctrl.panel.writeLastValue"
-            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+            <label class="gf-form-label width-14">Text Size</label>
+            <input type="number" ng-model="ctrl.panel.textSize" class="gf-form-input max-width-5"
+                   ng-blur="ctrl.render()"/>
         </div>
 
         <div class="gf-form">
-          <gf-form-switch class="gf-form"
-            label="Write Metric Names"
-            label-class="gf-form-label width-14"
-            checked="ctrl.panel.writeMetricNames"
-            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+            <gf-form-switch class="gf-form"
+                            label="Write Last Value"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.writeLastValue"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
         </div>
 
         <div class="gf-form">
-          <gf-form-switch class="gf-form"
-            label="Write All Values"
-            label-class="gf-form-label width-14"
-            checked="ctrl.panel.writeAllValues"
-            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+            <gf-form-switch class="gf-form"
+                            label="Write Metric Names"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.writeMetricNames"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+        </div>
+
+        <div class="gf-form">
+            <gf-form-switch class="gf-form"
+                            label="Write All Values"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.writeAllValues"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
         </div>
     </div>
 
+    <div class="section gf-form-group">
+        <h5 class="section-heading">Timeline</h5>
+
+        <div class="gf-form">
+            <gf-form-switch class="gf-form"
+                            label="Timeline Enabled"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.timelineEnabled"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+        </div>
+
+        <div class="gf-form">
+            <label class="gf-form-label width-14">Height (in %)</label>
+            <input type="number" ng-model="ctrl.panel.timelineHeightPercent" class="gf-form-input max-width-5"
+                   ng-blur="ctrl.render()"/>
+        </div>
+
+        <div class="gf-form">
+            <label class="gf-form-label width-14">Text Size</label>
+            <input type="number" ng-model="ctrl.panel.timelineTextSize" class="gf-form-input max-width-5"
+                   ng-blur="ctrl.render()"/>
+        </div>
+
+        <div class="gf-form">
+            <span class="gf-form-label width-10">
+                Color
+            </span>
+            <span class="gf-form-label">
+                <spectrum-picker ng-model="ctrl.panel.timelineScaleColor" ng-change="ctrl.render()" />
+            </span>
+        </div>
+    </div>
 
     <div class="section gf-form-group">
         <h5 class="section-heading">Legend</h5>
         <div class="gf-form">
-          <gf-form-switch class="gf-form"
-            label="Show Legend"
-            label-class="gf-form-label width-14"
-            checked="ctrl.panel.showLegend"
-            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+            <gf-form-switch class="gf-form"
+                            label="Show Legend"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.showLegend"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
         </div>
         <div ng-show="ctrl.panel.showLegend">
             <div class="gf-form">
-              <gf-form-switch class="gf-form"
-                label="Show Metric Names"
-                label-class="gf-form-label width-14"
-                checked="ctrl.panel.showLegendNames"
-                on-change="ctrl.onConfigChanged()"></gf-form-switch>
+                <gf-form-switch class="gf-form"
+                                label="Show Metric Names"
+                                label-class="gf-form-label width-14"
+                                checked="ctrl.panel.showLegendNames"
+                                on-change="ctrl.onConfigChanged()"></gf-form-switch>
             </div>
 
             <div class="gf-form">
-              <gf-form-switch class="gf-form"
-                label="Show Percent"
-                label-class="gf-form-label width-14"
-                checked="ctrl.panel.showLegendPercent"
-                on-change="ctrl.onConfigChanged()"></gf-form-switch>
+                <gf-form-switch class="gf-form"
+                                label="Show Percent"
+                                label-class="gf-form-label width-14"
+                                checked="ctrl.panel.showLegendPercent"
+                                on-change="ctrl.onConfigChanged()"></gf-form-switch>
             </div>
         </div>
     </div>
@@ -70,11 +102,11 @@
     <div class="section gf-form-group">
         <h5 class="section-heading">Hover tooltip</h5>
         <div class="gf-form">
-          <gf-form-switch class="gf-form"
-            label="Highlight on Hover"
-            label-class="gf-form-label width-14"
-            checked="ctrl.panel.highlightOnMouseover"
-            on-change="ctrl.onConfigChanged()"></gf-form-switch>
+            <gf-form-switch class="gf-form"
+                            label="Highlight on Hover"
+                            label-class="gf-form-label width-14"
+                            checked="ctrl.panel.highlightOnMouseover"
+                            on-change="ctrl.onConfigChanged()"></gf-form-switch>
         </div>
     </div>
 
